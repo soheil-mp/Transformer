@@ -33,6 +33,9 @@ class LRScheduler(LearningRateSchedule):
         self.warmup_steps = warmup_steps
 
     def __call__(self, step_num):
+
+        step_num = cast(step_num, float32)
+
         # Linearly increasing the learning rate for the first warmup_steps, and
         # decreasing it thereafter
         arg1 = step_num ** -0.5
@@ -46,7 +49,7 @@ optimizer = Adam(LRScheduler(d_model), beta_1, beta_2, epsilon)
 # Prepare the training dataset
 dataset = PrepareDataset()
 trainX, trainY, valX, valY, train_orig, val_orig, enc_seq_length, \
-    dec_seq_length, enc_vocab_size, dec_vocab_size = dataset('english-german-both.pkl')
+    dec_seq_length, enc_vocab_size, dec_vocab_size = dataset('./implementations from scratch/dataset/english-german-both.pkl')
 
 print(enc_seq_length, dec_seq_length, enc_vocab_size, dec_vocab_size)
 

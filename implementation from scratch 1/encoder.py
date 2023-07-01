@@ -137,24 +137,24 @@ class Encoder(tf.keras.layers.Layer):
 
         return x
     
-# Initialization
-h = 8                     # Number of self-attention heads
-d_k = 64                  # Dimension of the key and query vectors
-d_v = 64                  # Dimension of the value vectors
-d_ff = 2048               # Dimension of the inner feed-forward layer
-d_model = 512             # Dimension of the mode syb-layer' output
-n = 6                     # Number of encoder layers
-batch_size = 64           # Batch size
-dropout_rate = 0.1        # Dropout rate
-enc_vocab_size = 8192     # Encoder vocabulary size
-input_seq_length = 64     # Maximum length of the input sequence
+# # Initialization
+# h = 8                     # Number of self-attention heads
+# d_k = 64                  # Dimension of the key and query vectors
+# d_v = 64                  # Dimension of the value vectors
+# d_ff = 2048               # Dimension of the inner feed-forward layer
+# d_model = 512             # Dimension of the mode syb-layer' output
+# n = 6                     # Number of encoder layers
+# batch_size = 64           # Batch size
+# dropout_rate = 0.1        # Dropout rate
+# enc_vocab_size = 8192     # Encoder vocabulary size
+# input_seq_length = 64     # Maximum length of the input sequence
 
-# Test model output
-input_seq = np.random.random((batch_size, input_seq_length))
-encoder = Encoder(enc_vocab_size, input_seq_length, h, d_k, d_v, d_model, d_ff, n, dropout_rate)
-output_encoder = encoder(input_seq, None, True)
-print("Output of the encoder: \n", output_encoder)
+# # Test model output
+# input_seq = np.random.random((batch_size, input_seq_length))
+# encoder = Encoder(enc_vocab_size, input_seq_length, h, d_k, d_v, d_model, d_ff, n, dropout_rate)
+# output_encoder = encoder(input_seq, None, True)
+# print("Output of the encoder: \n", output_encoder)
 
-# Model summary
-encoder_layer = EncoderLayer(input_seq_length, h, d_k, d_v, d_model, d_ff, dropout_rate)
-print("Model summary: ", encoder_layer.build_graph().summary())
+# # Model summary
+# encoder_layer = EncoderLayer(input_seq_length, h, d_k, d_v, d_model, d_ff, dropout_rate)
+# print("Model summary: ", encoder_layer.build_graph().summary())

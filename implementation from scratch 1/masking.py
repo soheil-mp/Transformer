@@ -25,12 +25,12 @@ def lookahead_mask(shape):
     return mask
 
 
-# Test the padding mask
-inputs = np.array([1, 2, 3, 4, 0, 0, 0])
-masked_inputs = padding_mask(inputs)
-print("Inputs: ", inputs)
-print("Masked inputs: ", masked_inputs)
+# # Test the padding mask
+# inputs = np.array([1, 2, 3, 4, 0, 0, 0])
+# masked_inputs = padding_mask(inputs)
+# print("Inputs: ", inputs)
+# print("Masked inputs: ", masked_inputs)
 
-# Test the lookahead
-masked_lookahead = lookahead_mask(shape=5)
-print("Masked lookahead of shape 5: ", masked_lookahead)
+# # Test the lookahead
+# masked_lookahead = lookahead_mask(shape=5)
+# print("Masked lookahead of shape 5: ", masked_lookahead)

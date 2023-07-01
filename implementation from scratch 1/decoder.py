@@ -98,26 +98,26 @@ class Decoder(tf.keras.layers.Layer):
         return x
     
 
-# Hyperparameters
-h = 8                  # Number of heads
-d_k = 64               # Dimension of the key and query vectors
-d_v = 64               # Dimension of the value vectors
-d_ff = 2048            # Dimension of the feed-forward layer
-d_model = 512          # Dimension of the model sub-layer' output
-n = 6                  # Number of encoder layers
-batch_size = 64        # Batch size
-dropout_rate = 0.1     # Dropout rate
-dec_vocab_size = 8000  # Decoder vocabulary size
-input_seq_length = 40  # Input sequence length
+# # Hyperparameters
+# h = 8                  # Number of heads
+# d_k = 64               # Dimension of the key and query vectors
+# d_v = 64               # Dimension of the value vectors
+# d_ff = 2048            # Dimension of the feed-forward layer
+# d_model = 512          # Dimension of the model sub-layer' output
+# n = 6                  # Number of encoder layers
+# batch_size = 64        # Batch size
+# dropout_rate = 0.1     # Dropout rate
+# dec_vocab_size = 8000  # Decoder vocabulary size
+# input_seq_length = 40  # Input sequence length
 
-# Test model output
-input_seq = np.random.random((batch_size, input_seq_length))
-encoder_output = np.random.random((batch_size, input_seq_length, d_model))
-decoder = Decoder(dec_vocab_size, input_seq_length, h, d_k, d_v, d_model, d_ff, n, dropout_rate)
-output_target = decoder(input_seq, encoder_output, None, True)
-print("Decoder Output: ", output_target)
+# # Test model output
+# input_seq = np.random.random((batch_size, input_seq_length))
+# encoder_output = np.random.random((batch_size, input_seq_length, d_model))
+# decoder = Decoder(dec_vocab_size, input_seq_length, h, d_k, d_v, d_model, d_ff, n, dropout_rate)
+# output_target = decoder(input_seq, encoder_output, None, True)
+# print("Decoder Output: ", output_target)
 
-# Model summary
-decoder_layer = DecoderLayer(input_seq_length, h, d_k, d_v, d_model, d_ff, dropout_rate)
-decoder_layer.build_graph().summary()
+# # Model summary
+# decoder_layer = DecoderLayer(input_seq_length, h, d_k, d_v, d_model, d_ff, dropout_rate)
+# decoder_layer.build_graph().summary()
 
